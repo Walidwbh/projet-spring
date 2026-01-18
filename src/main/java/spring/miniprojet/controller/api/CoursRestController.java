@@ -12,8 +12,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Admin REST API for Cours Management
+ * Only admins can access these endpoints via JWT Bearer token
+ */
 @RestController
-@RequestMapping("/api/cours")
+@RequestMapping("/api/admin/cours")
 @RequiredArgsConstructor
 public class CoursRestController {
 
@@ -41,16 +45,6 @@ public class CoursRestController {
     @GetMapping("/search")
     public ResponseEntity<List<Cours>> search(@RequestParam String keyword) {
         return ResponseEntity.ok(coursService.search(keyword));
-    }
-
-    @GetMapping("/formateur/{formateurId}")
-    public ResponseEntity<List<Cours>> getByFormateur(@PathVariable Long formateurId) {
-        return ResponseEntity.ok(coursService.findByFormateurId(formateurId));
-    }
-
-    @GetMapping("/etudiant/{etudiantId}")
-    public ResponseEntity<List<Cours>> getByEtudiant(@PathVariable Long etudiantId) {
-        return ResponseEntity.ok(coursService.findByEtudiantId(etudiantId));
     }
 
     @PostMapping

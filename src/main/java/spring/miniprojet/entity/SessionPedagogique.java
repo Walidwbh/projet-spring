@@ -1,5 +1,6 @@
 package spring.miniprojet.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -39,12 +40,14 @@ public class SessionPedagogique {
     @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore
     private Set<Cours> cours = new HashSet<>();
 
     @OneToMany(mappedBy = "session")
     @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore
     private Set<Groupe> groupes = new HashSet<>();
 
     public enum TypeSession {
