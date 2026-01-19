@@ -10,8 +10,12 @@ import spring.miniprojet.service.FormateurService;
 import jakarta.validation.Valid;
 import java.util.List;
 
+/**
+ * Admin REST API for Formateur Management
+ * Only admins can access these endpoints via JWT Bearer token
+ */
 @RestController
-@RequestMapping("/api/formateurs")
+@RequestMapping("/api/admin/formateurs")
 @RequiredArgsConstructor
 public class FormateurRestController {
 

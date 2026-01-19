@@ -10,8 +10,12 @@ import spring.miniprojet.service.EtudiantService;
 import jakarta.validation.Valid;
 import java.util.List;
 
+/**
+ * Admin REST API for Etudiant Management
+ * Only admins can access these endpoints via JWT Bearer token
+ */
 @RestController
-@RequestMapping("/api/etudiants")
+@RequestMapping("/api/admin/etudiants")
 @RequiredArgsConstructor
 public class EtudiantRestController {
 

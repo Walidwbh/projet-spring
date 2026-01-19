@@ -1,5 +1,6 @@
 package spring.miniprojet.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -40,11 +41,13 @@ public class User {
     @OneToOne(mappedBy = "user")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore
     private Etudiant etudiant;
 
     @OneToOne(mappedBy = "user")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore
     private Formateur formateur;
 
     public enum Role {
